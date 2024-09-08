@@ -41,8 +41,8 @@ describe('GET /api/v1/users', () => {
       .get('/api/v1/users')
       .set('Authorization', `Bearer ${tokenAdmin}`)
     expect(res.statusCode).toBe(200)
-    expect(res.body).toBeInstanceOf(Array) // Verificamos que el resultado sea un array
-    expect(res.body.length).toBeGreaterThan(0) // Verificamos que haya al menos un usuario en el array
+    expect(res.body).toBeInstanceOf(Array)
+    expect(res.body.length).toBeGreaterThan(0)
   })
 
   // Test: El acceso debe ser denegado para usuarios no autenticados

@@ -28,4 +28,4 @@ if (process.env.NODE_ENV !== 'test') {
   )
 }
 
-module.exports = app // Exportar la instancia de app para Supertest
+module.exports = app

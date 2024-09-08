@@ -2,7 +2,7 @@ const express = require('express')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const User = require('../../models/User')
-const authMiddleware = require('../../middleware/auth') // Middleware de autenticación
+const authMiddleware = require('../../middleware/auth')
 const router = express.Router()
 
 // Crear un nuevo usuario (registro)

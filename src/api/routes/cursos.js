@@ -1,5 +1,5 @@
 const express = require('express')
-const Curso = require('../../models/Curso') // Verificar esta ruta
+const Curso = require('../../models/Curso')
 const router = express.Router()
 
 // Obtener todos los cursos
