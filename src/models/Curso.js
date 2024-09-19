@@ -5,7 +5,7 @@ const cursoSchema = new mongoose.Schema({
   descripcion: { type: String, required: true },
   precio: { type: Number, required: true, min: 0 },
   profesores: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
-  categoria: { type: mongoose.Schema.Types.ObjectId, ref: 'Categoria' } // Nueva relación con categoria
+  categoria: { type: mongoose.Schema.Types.ObjectId, ref: 'Categoria' } // Relación con categoría
 })
 
 module.exports = mongoose.models.Curso || mongoose.model('Curso', cursoSchema)

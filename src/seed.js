@@ -2,6 +2,7 @@ require('dotenv').config()
 const mongoose = require('mongoose')
 const User = require('./models/User')
 const Curso = require('./models/Curso')
+const Categoria = require('./models/Categoria')
 
 // Conectar a la base de datos
 mongoose.connect(process.env.DB_URL, {
@@ -12,6 +13,7 @@ mongoose.connect(process.env.DB_URL, {
 const seedDatabase = async () => {
   await User.deleteMany({})
   await Curso.deleteMany({})
+  await Categoria.deleteMany({})
 
   const admin = new User({
     nombre: 'Admin',
@@ -28,11 +30,17 @@ const seedDatabase = async () => {
   })
   await user.save()
 
+  const categoria1 = new Categoria({ nombre: 'Desarrollo Web' })
+  const categoria2 = new Categoria({ nombre: 'Bases de Datos' })
+  await categoria1.save()
+  await categoria2.save()
+
   const curso1 = new Curso({
     titulo: 'Curso de Node.js',
     descripcion: 'Aprende a crear APIs con Node.js',
     precio: 100,
-    profesores: [admin._id]
+    profesores: [admin._id],
+    categoria: categoria1._id
   })
   await curso1.save()
 
@@ -40,7 +48,8 @@ const seedDatabase = async () => {
     titulo: 'Curso de MongoDB',
     descripcion: 'Aprende a usar MongoDB para bases de datos',
     precio: 80,
-    profesores: [admin._id]
+    profesores: [admin._id],
+    categoria: categoria2._id
   })
   await curso2.save()
 
